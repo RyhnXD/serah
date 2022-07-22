@@ -894,18 +894,28 @@ To turn off this feature, type
 
 global.dfail = (type, m, conn) => {
     let msg = {
-        rowner: 'This command can only be used by _*OWWNER!1!1!*_',
-        owner: 'This command can only be used by _*Owner Bot*_!',
-        mods: 'This command can only be used by _*Moderator*_ !',
-        premium: 'This command is only for _*Premium*_ members!',
-        group: 'This command can only be used in groups!',
-        private: 'This command can only be used in Private Chat!',
-        admin: 'This command is only for *Admin* group!',
-        botAdmin: 'Make bot as *Admin* to use this command!',
-        unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
-        restrict: 'This feature is *disabled*!'
+        rowner: '[ ❗ ] Only Developer',
+        owner: '[ ❗ ] Only Owner',
+        mods: '[ ❗ ] Only Moderator',
+        premium: '[ ❗ ] Only Premium Users',
+        group: '[ ❗ ] Only Group Chat',
+        private: '[ ❗ ] Only Private Chat',
+        admin: '[ ❗ ] Only Admin Group',
+        botAdmin: '[ ❗ ] Only Bot Admin',
+        restrict: '[ ❗ ] This Fitur Disable',
     }[type]
-    if (msg) return conn.reply(m.chat, msg, m, { contextInfo: { externalAdReply: {title: global.wm, body: '404 Access denied!', sourceUrl: sgc, thumbnail: fs.readFileSync('./thumbnail.jpg') }}})
+    if (msg) return conn.reply(m.chat, msg, false, { quoted: m, contextInfo: { externalAdReply: { showAdAttribution: true,
+mediaUrl: sig,
+title: wm,
+body: titlebot,
+sourceUrl: sgc
+  }
+ } 
+})
+    let msgg = {
+    	unreg: '❗VERIFY TERLEBIH DAHULU SEBELUM MENGGUNAKAN FITUR BOT\n\n📮➞ CLICK THE BUTTON BELOW' 
+}[type]
+if (msgg) return conn.sendButton(m.chat, `${global.htki} VERIFY ${global.htka}`, msgg, null, ['VERIFY', '/verify'],m)
 }
 
 let file = global.__filename(import.meta.url, true)
