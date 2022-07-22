@@ -119,6 +119,7 @@ global.r = '」'
 // Sticker WM
 global.packname = 'ʜᴀɴᴢ'
 global.author = 'ᴍɪᴋᴏᴛᴏ ʙᴏᴛᴢ'
+global.snh = 'nhentai.net/352684/'
 
 global.multiplier = 69 // The higher, The harder levelup
 
